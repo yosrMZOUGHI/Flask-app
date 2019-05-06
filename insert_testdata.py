@@ -2,8 +2,7 @@
 
 import psycopg2
 
- 
- 
+
 def insert():
     """ insert test data into the tables in the PostgreSQL database"""
     commands = (
