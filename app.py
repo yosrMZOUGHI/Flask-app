@@ -69,6 +69,7 @@ def index():
 				skills_names=skills_names,
 				users_ids= users_ids)
 
+#returns the result of the sum /count query
 @app.route('/sqlQuery', methods=['GET'])
 def getQuery():
 	results = db.engine.execute("with names as ( SELECT *, CASE WHEN parent_id is null THEN name ELSE ( select name from agorize.skills as s1 where s1.id = s2.parent_id) END as init_names FROM agorize.skills as s2), pc as (SELECT *, CASE 	WHEN parent_id is null THEN id ELSE parent_id END as init_id FROM agorize.skills) select 	pc.init_id as ID , names.init_names as NAME , sum(u.points) as POINTS, count(su.user_id) as USERS_COUNT from agorize.skills_users as su left join pc  on pc.id = su.skill_id left join names on names.id  = pc.id left join agorize.users as u on su.user_id = u.id group by (pc.init_id, names.init_names) Order by pc.init_id;")
