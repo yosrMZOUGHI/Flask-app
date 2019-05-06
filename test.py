@@ -6,7 +6,6 @@ import psycopg2
 from create_tables import create_tables 
 
 
-
 class MyTests(unittest.TestCase):
 	#test that the three tables exist
 	def test_create_table(self):
