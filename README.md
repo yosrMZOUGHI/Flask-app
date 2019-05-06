@@ -10,11 +10,22 @@ I create a superuser (here called yosr) for PostgreSQL, create a database yosr_d
 
 `
 $ sudo -u postgres psql
-postgres=# CREATE ROLE yosr_user WITH SUPERUSER CREATEDB CREATEROLE LOGIN ENCRYPTED PASSWORD 'mypass';
+`
+`postgres=# CREATE ROLE yosr_user WITH SUPERUSER CREATEDB CREATEROLE LOGIN ENCRYPTED PASSWORD 'mypass';
+`
+`
 postgres=# CREATE DATABASE yosr_db;
+`
+`
 postgres=# GRANT ALL PRIVILEGES ON DATABASE yosr_db TO yosr_user;
+`
+`
 postgres=# \c yosr_db;
+`
+`
 postgres=# create schema agorize;
+`
+`
 postgres=# ALTER SCHEMA agorize OWNER TO yosr_user;
 
 `
@@ -30,15 +41,7 @@ To check it worked, you can go back to your postgres shell and type the command 
 `
 yosr_db=# \dt+ agorize.*
 `
-`
-                         List of relations
- Schema  |     Name     | Type  |   Owner   |  Size   | Description 
----------+--------------+-------+-----------+---------+-------------
- agorize | skills       | table | yosr_user | 0 bytes | 
- agorize | skills_users | table | yosr_user | 0 bytes | 
- agorize | users        | table | yosr_user | 0 bytes | 
-(3 rows)
-`
+
 2. Now we can fill our tables with some test data.
 `$python3 insert_testdata.py`
 
