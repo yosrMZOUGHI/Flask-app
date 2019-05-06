@@ -10,24 +10,23 @@ I create a superuser (here called yosr) for PostgreSQL, create a database yosr_d
 
 `
 $ sudo -u postgres psql
-`
+`\
 `postgres=# CREATE ROLE yosr_user WITH SUPERUSER CREATEDB CREATEROLE LOGIN ENCRYPTED PASSWORD 'mypass';
-`
+`\
 `
 postgres=# CREATE DATABASE yosr_db;
-`
+`\
 `
 postgres=# GRANT ALL PRIVILEGES ON DATABASE yosr_db TO yosr_user;
-`
+`\
 `
 postgres=# \c yosr_db;
-`
+`\
 `
 postgres=# create schema agorize;
-`
+`\
 `
 postgres=# ALTER SCHEMA agorize OWNER TO yosr_user;
-
 `
 
 2. Make sure you install Flask and flask_sqlalchemy.
