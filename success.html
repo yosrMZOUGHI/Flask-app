@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Landing Page template</title>
+    <meta name="generator" content="Bootply" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+</head>
+
+<body>
+    <div class="container-full">
+        <div class="row">
+            <div class="col-lg-12 text-center v-center">
+                <h1>Hello Guys</h1>
+                <p class="lead">Yeah a HTML page is better than a React application :p</p>
+                <br>
+                <br>
+                <br>
+                <form class="col-lg-12">
+                    <div class="input-group" style="width:340px;text-align:center;margin:0 auto;">
+                        <h3>Thank you!</h3>
+
+                        <p>We saved your submition; We know it's not perfect as it doesn't show the Id. We will hanlde it. Promise</p>
+
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <!-- /row -->
+        
+        <div class="row">
+            <div class="col-lg-12 text-center v-center">
+                <h1>OK now you want to see the SQL Query ?</h1>
+                <br>
+                <br>
+                <br>
+                <form class="col-lg-12" action="{{url_for('getQuery')}}" method="GET">
+        	        <div class="input-group" style="width:340px;text-align:center;margin:0 auto;">
+                	        <span class="input-group-btn"><button class="btn btn-lg btn-primary" type="submit">GIVE ME THAT QUERY</button></span>
+                        </div>
+                </form>
+            </div>
+
+        </div>
+
+        
+    </div>
+
+</body>
+</html>

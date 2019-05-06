@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Query</title>
+
+</head>
+
+<body>
+    <div class="container-full">
+        <div class="row">
+            <div class="col-lg-12 text-center v-center">
+                <h1>Landing</h1>
+                <p class="lead">Again a HTML page is better than a React application :p</p>
+                <br>
+                <br>
+                <style> .tall-row td { height: 20px; } </style> 
+                <table class="tall-row">
+		    <tr>
+			<td>ID</td> 
+			<td>NAME</td>
+			<td>POINTS</td>
+			<td>USERS_COUNT</td>
+			
+		    </tr>
+		    {% for items in data %}
+		    	<tr>
+		    	{% for item in items %}
+		   		 <td>{{item}}</td>
+			{% endfor %}
+			</tr>
+		    {% endfor %}
+		    
+		</table>
+
+<h2> Try It Yourself: </h2>
+<br>
+with names as ( <br>
+	SELECT *,  <br>
+       	CASE 	WHEN parent_id is null THEN name <br>
+            	ELSE ( select name from agorize.skills as s1 where s1.id = s2.parent_id) <br>
+       		END as init_names <br>
+    	FROM agorize.skills as s2),<br>
+
+                <br><br>
+                
+pc as (<br>
+	SELECT *,  <br>
+       	CASE 	WHEN parent_id is null THEN id <br>
+            	ELSE parent_id <br>
+       		END as init_id <br>
+    	FROM agorize.skills)
+<br><br>
+select 	pc.init_id as ID , <br>
+	names.init_names as NAME , <br>
+	sum(u.points) as POINTS, <br>
+	count(su.user_id) as USERS_COUNT <br>
+<br>
+from agorize.skills_users as su<br>
+
+left join pc  on pc.id = su.skill_id <br>
+left join names on names.id  = pc.id <br>
+left join agorize.users as u on su.user_id = u.id<br>
+
+group by (pc.init_id, names.init_names) <br>
+Order by pc.init_id;<br>
+		</div>
+	</div>
+	</div>
+</body>
+</html>
