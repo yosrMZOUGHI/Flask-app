@@ -3,7 +3,6 @@
 import psycopg2
 
  
- 
 def create_tables():
     """ create tables in the PostgreSQL database"""
     commands = (
